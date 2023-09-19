@@ -12,8 +12,8 @@ const insert = (pet) => {
   return db("pets").insert(pet);
 };
 
-const update = (pet_id, pet) => {
-  return db("users").where("pet_id", pet_id).update(pet);
+const change = (pet_id, pet) => {
+  return db("pets").where("pet_id", pet_id).update(pet);
 };
 
 const remove = (pet_id) => {
@@ -24,6 +24,6 @@ module.exports = {
   get,
   getById,
   insert,
-  update,
+  change,
   remove,
 };
