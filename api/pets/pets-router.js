@@ -4,8 +4,11 @@ const Pet = require("./pets-model");
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  const pets = await Pet.get();
-  res.json(pets);
+  await Pet.get()
+    .then((pets) => {
+      res.json(pets);
+    })
+    .catch(next);
 });
 
 router.get("/:id", async (req, res, next) => {
