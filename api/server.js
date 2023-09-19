@@ -4,7 +4,7 @@ const petsRouter = require("./pets/pets-router");
 const server = express();
 
 server.use(express.json());
-// server.use("/api/pets", petsRouter);
+server.use("/api/pets", petsRouter);
 
 server.use("*", (req, res) => {
   res.json("Hello from pets");
